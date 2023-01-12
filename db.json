@@ -1,0 +1,298 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "artist": "The Weeknd",
+      "album": "After Hours",
+      "year": 2020,
+      "price": 45,
+      "image": "assets/images/1.jpg",
+      "configuration": {
+        "genre": "r&b",
+        "edition": "extended",
+        "condition": "new",
+        "bestseller": true
+      }
+    },
+    {
+      "id": 2,
+      "artist": "Placebo",
+      "album": "Never Let Me Go",
+      "year": 2022,
+      "price": 40,
+      "image": "assets/images/2.jpg",
+      "configuration": {
+        "genre": "alternative",
+        "edition": "original",
+        "condition": "package",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 3,
+      "artist": "Daft Punk",
+      "album": "Discovery",
+      "year": 2001,
+      "price": 30,
+      "image": "assets/images/3.jpg",
+      "configuration": {
+        "genre": "electro",
+        "edition": "deluxe",
+        "condition": "used",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 4,
+      "artist": "Adele",
+      "album": "30",
+      "year": 2021,
+      "price": 35,
+      "image": "assets/images/4.jpg",
+      "configuration": {
+        "genre": "pop",
+        "edition": "extended",
+        "condition": "used",
+        "bestseller": true
+      }
+    },
+    {
+      "id": 5,
+      "artist": "Dua Lipa",
+      "album": "Future Nostalgia",
+      "year": 2021,
+      "price": 50,
+      "image": "assets/images/5.jpg",
+      "configuration": {
+        "genre": "pop",
+        "edition": "original",
+        "condition": "new",
+        "bestseller": true
+      }
+    },
+    {
+      "id": 6,
+      "artist": "Korn",
+      "album": "Requiem",
+      "year": 2022,
+      "price": 25,
+      "image": "assets/images/6.jpg",
+      "configuration": {
+        "genre": "rock",
+        "edition": "original",
+        "condition": "package",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 7,
+      "artist": "Moby",
+      "album": "Reprise",
+      "year": 2021,
+      "price": 40,
+      "image": "assets/images/7.jpg",
+      "configuration": {
+        "genre": "electro",
+        "edition": "original",
+        "condition": "new",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 8,
+      "artist": "Billie Eilish",
+      "album": "Happier Than Ever",
+      "year": 2021,
+      "price": 55,
+      "image": "assets/images/8.jpg",
+      "configuration": {
+        "genre": "pop",
+        "edition": "extended",
+        "condition": "new",
+        "bestseller": true
+      }
+    },
+    {
+      "id": 9,
+      "artist": "Lana Del Rey",
+      "album": "Born To Die",
+      "year": 2012,
+      "price": 30,
+      "image": "assets/images/9.jpg",
+      "configuration": {
+        "genre": "pop",
+        "edition": "deluxe",
+        "condition": "used",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 10,
+      "artist": "Twenty One Pilots",
+      "album": "Scaled And Icy",
+      "year": 2021,
+      "price": 20,
+      "image": "assets/images/10.jpg",
+      "configuration": {
+        "genre": "alternative",
+        "edition": "extended",
+        "condition": "used",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 11,
+      "artist": "Various Artists",
+      "album": "OST Pulp Fiction",
+      "year": 1994,
+      "price": 25,
+      "image": "assets/images/11.jpg",
+      "configuration": {
+        "genre": "soundtrack",
+        "edition": "deluxe",
+        "condition": "used",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 12,
+      "artist": "Maneskin",
+      "album": "Chosen",
+      "year": 2022,
+      "price": 35,
+      "image": "assets/images/12.jpg",
+      "configuration": {
+        "genre": "rock",
+        "edition": "original",
+        "condition": "package",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 13,
+      "artist": "Red Hot Chili Peppers",
+      "album": "Unlimited Love",
+      "year": 2022,
+      "price": 40,
+      "image": "assets/images/13.jpg",
+      "configuration": {
+        "genre": "rock",
+        "edition": "original",
+        "condition": "package",
+        "bestseller": true
+      }
+    },
+    {
+      "id": 14,
+      "artist": "Rammstein",
+      "album": "Zeit",
+      "year": 2022,
+      "price": 65,
+      "image": "assets/images/14.jpg",
+      "configuration": {
+        "genre": "rock",
+        "edition": "original",
+        "condition": "package",
+        "bestseller": true
+      }
+    },
+    {
+      "id": 15,
+      "artist": "John Legend",
+      "album": "Bigger Love",
+      "year": 2020,
+      "price": 40,
+      "image": "assets/images/15.jpg",
+      "configuration": {
+        "genre": "r&b",
+        "edition": "extended",
+        "condition": "new",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 16,
+      "artist": "Mac Miller",
+      "album": "Faces",
+      "year": 2021,
+      "price": 80,
+      "image": "assets/images/16.jpg",
+      "configuration": {
+        "genre": "r&b",
+        "edition": "deluxe",
+        "condition": "new",
+        "bestseller": true
+      }
+    },
+    {
+      "id": 17,
+      "artist": "Ed Sheeran",
+      "album": "=",
+      "year": 2021,
+      "price": 30,
+      "image": "assets/images/17.jpg",
+      "configuration": {
+        "genre": "pop",
+        "edition": "original",
+        "condition": "new",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 18,
+      "artist": "Various Artists",
+      "album": "OST Requiem For A Dream",
+      "year": 2000,
+      "price": 70,
+      "image": "assets/images/18.jpg",
+      "configuration": {
+        "genre": "soundtrack",
+        "edition": "extended",
+        "condition": "new",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 19,
+      "artist": "Various Artists",
+      "album": "OST Blade Runner 2049",
+      "year": 2017,
+      "price": 45,
+      "image": "assets/images/19.jpg",
+      "configuration": {
+        "genre": "soundtrack",
+        "edition": "original",
+        "condition": "package",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 20,
+      "artist": "Metallica",
+      "album": "And Justice For All",
+      "year": 1988,
+      "price": 55,
+      "image": "assets/images/20.jpg",
+      "configuration": {
+        "genre": "rock",
+        "edition": "deluxe",
+        "condition": "used",
+        "bestseller": false
+      }
+    },
+    {
+      "id": 21,
+      "artist": "A Day To Remember",
+      "album": "You’re Welcome",
+      "year": 2021,
+      "price": 40,
+      "image": "assets/images/21.jpg",
+      "configuration": {
+        "genre": "alternative",
+        "edition": "original",
+        "condition": "new",
+        "bestseller": false
+      }
+    }
+  ]
+}

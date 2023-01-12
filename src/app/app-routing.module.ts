@@ -8,7 +8,7 @@ import {RouterModule, Routes} from '@angular/router'
 const routes: Routes = [
   {path: '', component: BaseComponent},
   {path: 'products', component: ProductsComponent},
-  {path: 'product/:id', component: ProductDetailsComponent},
+  {path: 'products/:id', component: ProductDetailsComponent},
   {path: 'basket', component: BasketComponent},
 
   {path: '**', redirectTo: '', component: BaseComponent},

@@ -27,14 +27,19 @@ export class ProductsComponent implements OnInit, OnDestroy {
       .subscribe((products: IProduct[]) => (this.products = products))
   }
 
-  public openDialog(): void {
+  public openDialog(product?: IProduct): void {
     let dialogConfig = new MatDialogConfig()
     dialogConfig.width = '700px'
     dialogConfig.disableClose = true
+    dialogConfig.data = product
 
     const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig)
 
-    dialogRef.afterClosed().subscribe((data) => this.addProduct(data))
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data) {
+        data && data.id ? this.updateProduct(data) : this.addProduct(data)
+      }
+    })
   }
 
   public addProduct(product: IProduct): void {
@@ -43,8 +48,15 @@ export class ProductsComponent implements OnInit, OnDestroy {
       .subscribe((product: IProduct) => this.products.push(product))
   }
 
+  public updateProduct(product: IProduct): void {
+    this.productService.updateProduct(product).subscribe((data) => {
+      this.products = this.products.map((product: IProduct) => {
+        return product.id === data.id ? data : product
+      })
+    })
+  }
+
   public deleteProduct(id: number): void {
-    console.log(id)
     this.productService.deleteProduct(id).subscribe(
       // rewrite in simple method
       () =>

@@ -288,10 +288,10 @@
       "price": 40,
       "image": "assets/images/21.jpg",
       "configuration": {
-        "genre": "alternative",
-        "edition": "original",
-        "condition": "new",
-        "bestseller": false
+        "genre": "",
+        "edition": "",
+        "condition": "",
+        "bestseller": ""
       }
     }
   ]

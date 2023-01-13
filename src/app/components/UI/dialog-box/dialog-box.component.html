@@ -45,8 +45,10 @@
   </mat-form-field>
 
   <div class="controls">
-    <button mat-flat-button color="primary" type="submit">Add Product</button>
-    <button mat-flat-button color="primary" (click)="onNoClick()"
+    <button mat-flat-button color="primary" type="submit">{{
+      isNewProduct ? 'Add Product' : 'Edit Product'
+    }}</button>
+    <button mat-flat-button color="primary" type="button" (click)="onNoClick()"
       >Discard</button
     >
   </div>

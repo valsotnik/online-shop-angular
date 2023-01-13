@@ -21,6 +21,13 @@ export class ProductsService {
     return this.http.post<IProduct>(environment.urlData, product)
   }
 
+  public updateProduct(product: IProduct) {
+    return this.http.patch<IProduct>(
+      `${environment.urlData}/${product.id}`,
+      product
+    )
+  }
+
   public deleteProduct(id: number) {
     return this.http.delete(`${environment.urlData}/${id}`)
   }

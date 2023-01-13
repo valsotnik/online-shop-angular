@@ -9,6 +9,7 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
 })
 export class DialogBoxComponent implements OnInit {
   public form: FormGroup
+  public isNewProduct: boolean = true
 
   constructor(
     public dialogRef: MatDialogRef<DialogBoxComponent>,
@@ -17,25 +18,28 @@ export class DialogBoxComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
+    if (this.data) this.isNewProduct = false
     this.form = this.fb.group({
-      artist: [''],
-      album: [''],
-      year: [''],
-      price: [''],
-      image: [''],
-      genre: [''],
-      edition: [''],
-      condition: [''],
-      bestseller: [''],
+      id: [this.data?.id ?? null],
+      artist: [this.data?.artist ?? ''],
+      album: [this.data?.album ?? ''],
+      year: [this.data?.year ?? ''],
+      price: [this.data?.price ?? ''],
+      image: [this.data?.image ?? ''],
+      genre: [this.data?.genre ?? ''],
+      edition: [this.data?.edition ?? ''],
+      condition: [this.data?.condition ?? ''],
+      bestseller: [this.data?.bestseller ?? ''],
     })
   }
 
   public onNoClick(): void {
-    this.dialogRef.close()
+    this.dialogRef.close(null)
   }
 
   public onSubmit(): void {
     const {
+      id,
       artist,
       album,
       year,
@@ -47,6 +51,7 @@ export class DialogBoxComponent implements OnInit {
       bestseller,
     } = this.form.value
     this.data = {
+      id: id,
       artist: artist,
       album: album,
       year: year,

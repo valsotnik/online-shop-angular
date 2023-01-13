@@ -3,7 +3,6 @@ import {DialogBoxComponent} from '../../shared/components/dialog-box/dialog-box.
 import {ProductsService} from './../../services/products.service'
 import {IProduct} from './../../models/products'
 import {Component, OnInit, Self} from '@angular/core'
-import {Subscription} from 'rxjs'
 import {takeUntil} from 'rxjs/operators'
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog'
 import {OnDestroyService} from 'src/app/services/on-destroy.service'
@@ -38,13 +37,14 @@ export class ProductsComponent implements OnInit {
   }
 
   public openAddDialog(): void {
-    let dialogConfig = new MatDialogConfig()
-    dialogConfig.width = '700px'
-    dialogConfig.disableClose = true
+    const dialogRef = this.dialog.open(
+      DialogBoxComponent,
+      this.defineDialogConfig(700, true)
+    )
 
-    const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig)
-
-    dialogRef.afterClosed().subscribe((data) => this.addProduct(data))
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data) this.addProduct(data)
+    })
   }
 
   public openEditDialog(product?: IProduct): void {
@@ -52,17 +52,17 @@ export class ProductsComponent implements OnInit {
       .getProduct(product?.id)
       .pipe(takeUntil(this.destroy$))
       .subscribe((product: IProduct) => {
-        let dialogConfig = new MatDialogConfig()
-        dialogConfig.width = '700px'
-        dialogConfig.disableClose = true
-        dialogConfig.data = product
-
-        const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig)
+        const dialogRef = this.dialog.open(
+          DialogBoxComponent,
+          this.defineDialogConfig(700, true, product)
+        )
 
         dialogRef
           .afterClosed()
           .pipe(takeUntil(this.destroy$))
-          .subscribe((data) => this.updateProduct(data))
+          .subscribe((data) => {
+            if (data && product.id) this.addProduct(data)
+          })
       })
   }
 
@@ -71,13 +71,26 @@ export class ProductsComponent implements OnInit {
       .getProduct(product.id)
       .pipe(takeUntil(this.destroy$))
       .subscribe((product: IProduct) => {
-        let dialogConfig = new MatDialogConfig()
-        dialogConfig.width = '500px'
-        dialogConfig.height = '800px'
-        dialogConfig.disableClose = true
-        dialogConfig.data = product
-        const dialogRef = this.dialog.open(DialogDetailsComponent, dialogConfig)
+        const dialogRef = this.dialog.open(
+          DialogDetailsComponent,
+          this.defineDialogConfig(500, true, product, 800)
+        )
       })
+  }
+
+  private defineDialogConfig(
+    width: number,
+    isDisable: boolean,
+    data?: IProduct,
+    height?: number
+  ) {
+    let dialogConfig = new MatDialogConfig()
+    dialogConfig.width = `${width}px`
+    dialogConfig.disableClose = isDisable
+    dialogConfig.data = data ?? {}
+    dialogConfig.height = `${height}px` ?? ''
+
+    return dialogConfig
   }
 
   public addProduct(product: IProduct): void {

@@ -26,10 +26,10 @@ export class DialogBoxComponent implements OnInit {
       year: [this.data?.year ?? ''],
       price: [this.data?.price ?? ''],
       image: [this.data?.image ?? ''],
-      genre: [this.data?.genre ?? ''],
-      edition: [this.data?.edition ?? ''],
-      condition: [this.data?.condition ?? ''],
-      bestseller: [this.data?.bestseller ?? ''],
+      genre: [this.data?.configuration?.genre ?? ''],
+      edition: [this.data?.configuration?.edition ?? ''],
+      condition: [this.data?.configuration?.condition ?? ''],
+      bestseller: [this.data?.configuration?.bestseller ?? ''],
     })
   }
 

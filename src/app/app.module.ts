@@ -13,7 +13,6 @@ import {SharedModule} from './shared/shared.module'
 import {AppComponent} from './app.component'
 import {ProductsComponent} from './components/products/products.component'
 import {BasketComponent} from './components/basket/basket.component'
-import {ProductDetailsComponent} from './components/product-details/product-details.component'
 import {BaseComponent} from './components/base/base.component'
 
 @NgModule({
@@ -21,7 +20,6 @@ import {BaseComponent} from './components/base/base.component'
     AppComponent,
     BaseComponent,
     ProductsComponent,
-    ProductDetailsComponent,
     BasketComponent,
   ],
   imports: [

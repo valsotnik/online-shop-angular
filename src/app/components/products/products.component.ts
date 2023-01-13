@@ -2,88 +2,105 @@ import {DialogDetailsComponent} from './../../shared/components/dialog-details/d
 import {DialogBoxComponent} from '../../shared/components/dialog-box/dialog-box.component'
 import {ProductsService} from './../../services/products.service'
 import {IProduct} from './../../models/products'
-import {Component, OnDestroy, OnInit} from '@angular/core'
-import {Observable, Subject, Subscription} from 'rxjs'
+import {Component, OnInit, Self} from '@angular/core'
+import {Subscription} from 'rxjs'
+import {takeUntil} from 'rxjs/operators'
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog'
+import {OnDestroyService} from 'src/app/services/on-destroy.service'
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
+  providers: [OnDestroyService],
 })
-export class ProductsComponent implements OnInit, OnDestroy {
+export class ProductsComponent implements OnInit {
   public products: IProduct[]
-  public productsSub: Subscription
   public basketProducts: IProduct[]
-  public basketSub: Subscription
-  public editMode: boolean = false
+  public detailsProduct: IProduct
 
   constructor(
+    @Self() private readonly destroy$: OnDestroyService,
     public dialog: MatDialog,
     private productService: ProductsService
   ) {}
 
   public ngOnInit(): void {
-    this.editMode = true
-    this.productsSub = this.productService
+    this.productService
       .getProducts()
+      .pipe(takeUntil(this.destroy$))
       .subscribe((products: IProduct[]) => (this.products = products))
 
-    this.basketSub = this.productService
+    this.productService
       .getProductsFromBasket()
+      .pipe(takeUntil(this.destroy$))
       .subscribe((products: IProduct[]) => (this.basketProducts = products))
   }
 
   public openDialog(product?: IProduct): void {
-    let dialogConfig = new MatDialogConfig()
-    dialogConfig.width = '700px'
-    dialogConfig.disableClose = true
-    dialogConfig.data = product
+    this.productService
+      .getProduct(product.id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((product: IProduct) => {
+        let dialogConfig = new MatDialogConfig()
+        dialogConfig.width = '700px'
+        dialogConfig.disableClose = true
+        dialogConfig.data = product
 
-    const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig)
+        const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig)
 
-    dialogRef.afterClosed().subscribe((data) => {
-      if (data) {
-        data && data.id ? this.updateProduct(data) : this.addProduct(data)
-      }
-    })
+        dialogRef.afterClosed().subscribe((data) => {
+          if (data) {
+            data && data.id ? this.updateProduct(data) : this.addProduct(data)
+          }
+        })
+      })
   }
 
   public openDetails(product?: IProduct): void {
-    let dialogConfig = new MatDialogConfig()
-    dialogConfig.width = '500px'
-    dialogConfig.height = '800px'
-    dialogConfig.disableClose = true
-    dialogConfig.data = product
-
-    const dialogRef = this.dialog.open(DialogDetailsComponent, dialogConfig)
+    this.productService
+      .getProduct(product.id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((product: IProduct) => {
+        let dialogConfig = new MatDialogConfig()
+        dialogConfig.width = '500px'
+        dialogConfig.height = '800px'
+        dialogConfig.disableClose = true
+        dialogConfig.data = product
+        const dialogRef = this.dialog.open(DialogDetailsComponent, dialogConfig)
+      })
   }
 
   public addProduct(product: IProduct): void {
     this.productService
       .addProduct(product)
+      .pipe(takeUntil(this.destroy$))
       .subscribe((product: IProduct) => this.products.push(product))
   }
 
   public updateProduct(product: IProduct): void {
-    this.productService.updateProduct(product).subscribe((data) => {
-      this.products = this.products.map((product: IProduct) => {
-        return product.id === data.id ? data : product
+    this.productService
+      .updateProduct(product)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {
+        this.products = this.products.map((product: IProduct) => {
+          return product.id === data.id ? data : product
+        })
       })
-    })
   }
 
   public deleteProduct(id: number): void {
-    this.productService.deleteProduct(id).subscribe(
-      // rewrite in simple method
-      () =>
+    this.productService
+      .deleteProduct(id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() =>
         this.products.find((product) => {
           if (id === product.id) {
             let index = this.products.findIndex((data) => data.id === id)
             this.products.splice(index, 1)
           }
         })
-    )
+      )
   }
 
   public increaseQuantity(product: IProduct) {
@@ -99,16 +116,15 @@ export class ProductsComponent implements OnInit, OnDestroy {
   public addToBasket(product: IProduct): void {
     this.productService
       .addProductToBasket(product)
+      .pipe(takeUntil(this.destroy$))
       .subscribe((data) => this.basketProducts.push(data))
   }
 
   public updateInBasket(product: IProduct): void {
     product.quantity++
-    this.productService.updateProductFromBasket(product).subscribe((data) => {})
-  }
-
-  public ngOnDestroy(): void {
-    if (this.productsSub) this.productsSub.unsubscribe()
-    if (this.basketSub) this.basketSub.unsubscribe()
+    this.productService
+      .updateProductFromBasket(product)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {})
   }
 }

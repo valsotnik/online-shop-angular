@@ -37,9 +37,19 @@ export class ProductsComponent implements OnInit {
       .subscribe((products: IProduct[]) => (this.basketProducts = products))
   }
 
-  public openDialog(product?: IProduct): void {
+  public openAddDialog(): void {
+    let dialogConfig = new MatDialogConfig()
+    dialogConfig.width = '700px'
+    dialogConfig.disableClose = true
+
+    const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig)
+
+    dialogRef.afterClosed().subscribe((data) => this.addProduct(data))
+  }
+
+  public openEditDialog(product?: IProduct): void {
     this.productService
-      .getProduct(product.id)
+      .getProduct(product?.id)
       .pipe(takeUntil(this.destroy$))
       .subscribe((product: IProduct) => {
         let dialogConfig = new MatDialogConfig()
@@ -49,15 +59,14 @@ export class ProductsComponent implements OnInit {
 
         const dialogRef = this.dialog.open(DialogBoxComponent, dialogConfig)
 
-        dialogRef.afterClosed().subscribe((data) => {
-          if (data) {
-            data && data.id ? this.updateProduct(data) : this.addProduct(data)
-          }
-        })
+        dialogRef
+          .afterClosed()
+          .pipe(takeUntil(this.destroy$))
+          .subscribe((data) => this.updateProduct(data))
       })
   }
 
-  public openDetails(product?: IProduct): void {
+  public openDetailsDialog(product: IProduct): void {
     this.productService
       .getProduct(product.id)
       .pipe(takeUntil(this.destroy$))

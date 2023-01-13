@@ -5,7 +5,7 @@
       "artist": "The Weeknd",
       "album": "After Hours",
       "year": 2020,
-      "price": 45,
+      "price": "50",
       "image": "assets/images/1.jpg",
       "configuration": {
         "genre": "r&b",
@@ -19,13 +19,13 @@
       "artist": "Placebo",
       "album": "Never Let Me Go",
       "year": 2022,
-      "price": 40,
+      "price": "40",
       "image": "assets/images/2.jpg",
       "configuration": {
-        "genre": "",
-        "edition": "",
-        "condition": "",
-        "bestseller": ""
+        "genre": "alternative",
+        "edition": "original",
+        "condition": "new",
+        "bestseller": false
       }
     },
     {
@@ -33,7 +33,7 @@
       "artist": "Daft Punk",
       "album": "Discovery",
       "year": 2001,
-      "price": 30,
+      "price": "35",
       "image": "assets/images/3.jpg",
       "configuration": {
         "genre": "electro",
@@ -47,7 +47,7 @@
       "artist": "Adele",
       "album": "30",
       "year": 2021,
-      "price": 35,
+      "price": "40",
       "image": "assets/images/4.jpg",
       "configuration": {
         "genre": "pop",
@@ -176,10 +176,10 @@
       "price": 40,
       "image": "assets/images/13.jpg",
       "configuration": {
-        "genre": "rock",
-        "edition": "original",
-        "condition": "package",
-        "bestseller": true
+        "genre": "",
+        "edition": "",
+        "condition": "",
+        "bestseller": ""
       }
     },
     {
@@ -296,5 +296,20 @@
     }
   ],
   "basket": [
+    {
+      "id": 2,
+      "artist": "Placebo",
+      "album": "Never Let Me Go",
+      "year": 2022,
+      "price": 40,
+      "image": "assets/images/2.jpg",
+      "configuration": {
+        "genre": "",
+        "edition": "",
+        "condition": "",
+        "bestseller": ""
+      },
+      "quantity": 3
+    }
   ]
 }

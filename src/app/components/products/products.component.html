@@ -1,7 +1,6 @@
 <app-header [productsActionTemplate]="productsHeaderActions"></app-header>
-
 <ng-template #productsHeaderActions>
-  <mat-icon class="material-icons" (click)="openDialog()">add</mat-icon>
+  <mat-icon class="material-icons" (click)="openAddDialog()">add</mat-icon>
   <mat-icon class="material-icons">search</mat-icon>
   <mat-icon class="material-icons">filter_alt</mat-icon>
   <div mat-flat-button [routerLink]="['basket']">
@@ -35,11 +34,11 @@
         <span class="material-icons">delete</span>
       </button>
 
-      <button mat-button (click)="openDialog(product)">
+      <button mat-button (click)="openEditDialog(product)">
         <span class="material-icons">edit</span>
       </button>
 
-      <button mat-button (click)="openDetails(product)">
+      <button mat-button (click)="openDetailsDialog(product)">
         <span class="material-icons">info</span>
       </button>
 

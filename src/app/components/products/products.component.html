@@ -1,45 +1,55 @@
+<app-header [productsActionTemplate]="productsHeaderActions"></app-header>
+
+<ng-template #productsHeaderActions>
+  <mat-icon class="material-icons" (click)="openDialog()">add</mat-icon>
+  <mat-icon class="material-icons">search</mat-icon>
+  <mat-icon class="material-icons">filter_alt</mat-icon>
+  <div mat-flat-button [routerLink]="['basket']">
+    <mat-icon class="material-icons" [routerLink]="['/basket']"
+      >shopping_cart</mat-icon
+    >
+  </div>
+</ng-template>
+
 <div class="container">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span class="example-spacer" *ngIf="editMode"></span>
-      <button mat-flat-button color="basic" (click)="openDialog()"
-        >Add Product</button
-      >
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <ng-container *ngIf="products?.length; else noProductsTemplate">
+    <mat-card class="example-card" *ngFor="let product of products">
+      <img
+        class="product-image"
+        mat-card-image
+        src="{{ product.image }}"
+        alt="cover"
+      />
+      <div class="header-row">
+        <mat-card-header>
+          <mat-card-title>{{ product.artist | titlecase }}</mat-card-title>
+          <mat-card-subtitle
+            >{{ product.album }} ({{ product.year }})</mat-card-subtitle
+          >
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ product.price | currency }}</h2>
+        </mat-card-content>
+      </div>
+      <button mat-button (click)="deleteProduct(product.id)">
+        <span class="material-icons">delete</span>
+      </button>
 
-  <mat-card class="example-card" *ngFor="let product of products">
-    <img
-      class="product-image"
-      mat-card-image
-      src="{{ product.image }}"
-      alt="cover"
-    />
-    <div class="header-row">
-      <mat-card-header>
-        <mat-card-title>{{ product.artist | titlecase }}</mat-card-title>
-        <mat-card-subtitle
-          >{{ product.album }} ({{ product.year }})</mat-card-subtitle
-        >
-      </mat-card-header>
-      <mat-card-content>
-        <h2>{{ product.price | currency }}</h2>
-      </mat-card-content>
-    </div>
-    <button mat-button (click)="deleteProduct(product.id)">
-      <span class="material-icons">delete</span>
-    </button>
+      <button mat-button (click)="openDialog(product)">
+        <span class="material-icons">edit</span>
+      </button>
 
-    <button mat-button (click)="openDialog(product)">
-      <span class="material-icons">edit</span>
-    </button>
+      <button mat-button (click)="openDetails(product)">
+        <span class="material-icons">info</span>
+      </button>
 
-    <button mat-button (click)="openDetails(product)">
-      <span class="material-icons">info</span>
-    </button>
-
-    <button mat-button (click)="increaseQuantity(product)">
-      <span class="material-icons">add_shopping_cart</span>
-    </button>
-  </mat-card>
+      <button mat-button (click)="increaseQuantity(product)">
+        <span class="material-icons">add_shopping_cart</span>
+      </button>
+    </mat-card>
+  </ng-container>
 </div>
+
+<ng-template #noProductsTemplate>
+  <h2>No Products yet</h2>
+</ng-template>

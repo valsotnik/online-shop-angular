@@ -12,6 +12,7 @@ import {HeaderComponent} from './components/header/header.component'
 import {DialogBoxComponent} from './components/dialog-box/dialog-box.component'
 import {DialogDetailsComponent} from './components/dialog-details/dialog-details.component'
 import {MatCardModule} from '@angular/material/card'
+import {MatBadgeModule} from '@angular/material/badge'
 
 @NgModule({
   declarations: [HeaderComponent, DialogBoxComponent, DialogDetailsComponent],
@@ -25,6 +26,7 @@ import {MatCardModule} from '@angular/material/card'
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatBadgeModule,
   ],
   exports: [HeaderComponent, DialogBoxComponent],
 })

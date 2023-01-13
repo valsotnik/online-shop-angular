@@ -2,14 +2,21 @@
   <mat-toolbar-row>
     <div class="toolbar no-select" routerLink="/">
       <mat-icon>home</mat-icon>
-      <span>Online Shop</span>
+      <span>Vinyl Shop</span>
     </div>
 
     <span class="example-spacer"></span>
+
     <div class="toolbar no-select">
-      <button mat-flat-button [routerLink]="['']">Main</button>
-      <button mat-flat-button [routerLink]="['products']">Products</button>
-      <button mat-flat-button [routerLink]="['basket']">Basket</button>
+      <div class="action-controls">
+        <ng-container
+          *ngTemplateOutlet="productsActionTemplate || defaultActionsTemplate"
+        ></ng-container>
+        <ng-template #defaultActionsTemplate>
+          <button mat-flat-button [routerLink]="['']">Main</button>
+          <button mat-flat-button [routerLink]="['products']">Products</button>
+        </ng-template>
+      </div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

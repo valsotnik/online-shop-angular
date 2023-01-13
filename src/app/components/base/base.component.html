@@ -1,1 +1,6 @@
+<app-header [productsActionTemplate]="baseHeaderActions"></app-header>
+
+<ng-template #baseHeaderActions>
+  <button mat-flat-button [routerLink]="['products']">Products</button>
+</ng-template>
 <p>base works!</p>

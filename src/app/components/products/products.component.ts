@@ -57,12 +57,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
     dialogConfig.data = product
 
     const dialogRef = this.dialog.open(DialogDetailsComponent, dialogConfig)
-
-    // dialogRef.afterClosed().subscribe((data) => {
-    //   if (data) {
-    //     data && data.id ? this.updateProduct(data) : this.addProduct(data)
-    //   }
-    // })
   }
 
   public addProduct(product: IProduct): void {

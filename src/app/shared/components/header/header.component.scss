@@ -12,3 +12,9 @@
   cursor: pointer;
   user-select: none;
 }
+
+.action-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

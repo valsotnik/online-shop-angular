@@ -20,4 +20,8 @@ export class ProductsService {
   public addProduct(product: IProduct) {
     return this.http.post<IProduct>(environment.urlData, product)
   }
+
+  public deleteProduct(id: number) {
+    return this.http.delete(`${environment.urlData}/${id}`)
+  }
 }

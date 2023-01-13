@@ -18,6 +18,7 @@ import {MatCardModule} from '@angular/material/card'
 import {HttpClientModule} from '@angular/common/http'
 import {MatDialogModule} from '@angular/material/dialog'
 import {MatInputModule} from '@angular/material/input'
+import {MatMenuModule} from '@angular/material/menu'
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MatInputModule} from '@angular/material/input'
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

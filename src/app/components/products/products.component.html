@@ -28,6 +28,13 @@
       <button mat-flat-button color="primary" [routerLink]="[product.id]"
         >Details</button
       >
+      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="deleteProduct(product.id)"
+          >Delete</button
+        >
+        <button mat-menu-item>Edit</button>
+      </mat-menu>
     </mat-card-actions>
   </mat-card>
 </div>

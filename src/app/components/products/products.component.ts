@@ -43,6 +43,20 @@ export class ProductsComponent implements OnInit, OnDestroy {
       .subscribe((product: IProduct) => this.products.push(product))
   }
 
+  public deleteProduct(id: number): void {
+    console.log(id)
+    this.productService.deleteProduct(id).subscribe(
+      // rewrite in simple method
+      () =>
+        this.products.find((product) => {
+          if (id === product.id) {
+            let index = this.products.findIndex((data) => data.id === id)
+            this.products.splice(index, 1)
+          }
+        })
+    )
+  }
+
   public ngOnDestroy(): void {
     if (this.productsSub) this.productsSub.unsubscribe()
   }

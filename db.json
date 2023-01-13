@@ -22,10 +22,10 @@
       "price": 40,
       "image": "assets/images/2.jpg",
       "configuration": {
-        "genre": "alternative",
-        "edition": "original",
-        "condition": "package",
-        "bestseller": false
+        "genre": "",
+        "edition": "",
+        "condition": "",
+        "bestseller": ""
       }
     },
     {
@@ -295,5 +295,6 @@
       }
     }
   ],
-  "basket": []
+  "basket": [
+  ]
 }

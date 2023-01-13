@@ -1,4 +1,4 @@
-import {DialogBoxComponent} from './../UI/dialog-box/dialog-box.component'
+import {DialogBoxComponent} from '../../shared/components/dialog-box/dialog-box.component'
 import {ProductsService} from './../../services/products.service'
 import {IProduct} from './../../models/products'
 import {Component, OnDestroy, OnInit} from '@angular/core'

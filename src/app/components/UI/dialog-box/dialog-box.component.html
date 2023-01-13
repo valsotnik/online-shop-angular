@@ -1,1 +1,53 @@
-<p>dialog-box works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Artist</mat-label>
+    <input matInput formControlName="artist" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Album</mat-label>
+    <input matInput formControlName="album" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Year</mat-label>
+    <input matInput formControlName="year" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Price</mat-label>
+    <input matInput formControlName="price" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Image</mat-label>
+    <input matInput formControlName="image" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Genre</mat-label>
+    <input matInput formControlName="genre" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Edition</mat-label>
+    <input matInput formControlName="edition" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Condition</mat-label>
+    <input matInput formControlName="condition" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Bestseller</mat-label>
+    <input matInput formControlName="bestseller" />
+  </mat-form-field>
+
+  <div class="controls">
+    <button mat-flat-button color="primary" type="submit">Add Product</button>
+    <button mat-flat-button color="primary" (click)="onNoClick()"
+      >Discard</button
+    >
+  </div>
+</form>

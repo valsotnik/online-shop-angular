@@ -16,4 +16,8 @@ export class ProductsService {
   public getProduct(id: number) {
     return this.http.get<IProduct>(`${environment.urlData}/${id}`)
   }
+
+  public addProduct(product: IProduct) {
+    return this.http.post<IProduct>(environment.urlData, product)
+  }
 }

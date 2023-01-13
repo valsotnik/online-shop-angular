@@ -1,0 +1,17 @@
+.container {
+  margin: 0 auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-image {
+  max-width: 300px;
+}

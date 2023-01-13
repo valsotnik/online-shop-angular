@@ -1,0 +1,29 @@
+<mat-card class="example-card">
+  <img
+    class="product-image"
+    mat-card-image
+    src="{{ data.image }}"
+    alt="cover"
+  />
+  <div class="header-row">
+    <mat-card-header>
+      <mat-card-title>{{ data.artist | titlecase }}</mat-card-title>
+      <mat-card-subtitle>{{ data.album }} ({{ data.year }})</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h2>{{ data.price | currency }}</h2>
+    </mat-card-content>
+  </div>
+  <mat-card-content>
+    <p>Year: {{ data.year }}</p>
+    <p>Genre: {{ data.configuration.genre | titlecase }}</p>
+    <p>Edition: {{ data.configuration.edition | titlecase }}</p>
+    <p>Condition: {{ data.configuration.condition | titlecase }}</p>
+    <p>Bestseller: {{ data.configuration.bestseller ? 'Yes' : 'No' }}</p>
+  </mat-card-content>
+  <mat-card-actions class="buttons">
+    <button mat-button (click)="onNoClick()">
+      <span class="material-icons">arrow_back</span>
+    </button>
+  </mat-card-actions>
+</mat-card>

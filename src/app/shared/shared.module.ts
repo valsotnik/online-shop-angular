@@ -10,9 +10,11 @@ import {MatButtonModule} from '@angular/material/button'
 import {AppRoutingModule} from '../app-routing.module'
 import {HeaderComponent} from './components/header/header.component'
 import {DialogBoxComponent} from './components/dialog-box/dialog-box.component'
+import {DialogDetailsComponent} from './components/dialog-details/dialog-details.component'
+import {MatCardModule} from '@angular/material/card'
 
 @NgModule({
-  declarations: [HeaderComponent, DialogBoxComponent],
+  declarations: [HeaderComponent, DialogBoxComponent, DialogDetailsComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
@@ -22,6 +24,7 @@ import {DialogBoxComponent} from './components/dialog-box/dialog-box.component'
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
   ],
   exports: [HeaderComponent, DialogBoxComponent],
 })

@@ -15,32 +15,31 @@
       src="{{ product.image }}"
       alt="cover"
     />
-    <mat-card-header>
-      <mat-card-title>{{ product.artist | titlecase }}</mat-card-title>
-      <mat-card-subtitle>{{ product.album }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Year: {{ product.year }}</p>
-      <p>Price: {{ product.price | currency }}</p>
-    </mat-card-content>
-    <mat-card-actions class="buttons">
-      <button
-        mat-flat-button
-        color="primary"
-        type="button"
-        (click)="increaseQuantity(product)"
-        >To Basket</button
-      >
-      <button mat-flat-button color="primary" [routerLink]="[product.id]"
-        >Details</button
-      >
-      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="deleteProduct(product.id)"
-          >Delete</button
+    <div class="header-row">
+      <mat-card-header>
+        <mat-card-title>{{ product.artist | titlecase }}</mat-card-title>
+        <mat-card-subtitle
+          >{{ product.album }} ({{ product.year }})</mat-card-subtitle
         >
-        <button mat-menu-item (click)="openDialog(product)">Edit</button>
-      </mat-menu>
-    </mat-card-actions>
+      </mat-card-header>
+      <mat-card-content>
+        <h2>{{ product.price | currency }}</h2>
+      </mat-card-content>
+    </div>
+    <button mat-button (click)="deleteProduct(product.id)">
+      <span class="material-icons">delete</span>
+    </button>
+
+    <button mat-button (click)="openDialog(product)">
+      <span class="material-icons">edit</span>
+    </button>
+
+    <button mat-button (click)="openDetails(product)">
+      <span class="material-icons">info</span>
+    </button>
+
+    <button mat-button (click)="increaseQuantity(product)">
+      <span class="material-icons">add_shopping_cart</span>
+    </button>
   </mat-card>
 </div>

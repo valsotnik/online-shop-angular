@@ -1,3 +1,4 @@
+import {DialogDetailsComponent} from './../../shared/components/dialog-details/dialog-details.component'
 import {DialogBoxComponent} from '../../shared/components/dialog-box/dialog-box.component'
 import {ProductsService} from './../../services/products.service'
 import {IProduct} from './../../models/products'
@@ -46,6 +47,22 @@ export class ProductsComponent implements OnInit, OnDestroy {
         data && data.id ? this.updateProduct(data) : this.addProduct(data)
       }
     })
+  }
+
+  public openDetails(product?: IProduct): void {
+    let dialogConfig = new MatDialogConfig()
+    dialogConfig.width = '500px'
+    dialogConfig.height = '800px'
+    dialogConfig.disableClose = true
+    dialogConfig.data = product
+
+    const dialogRef = this.dialog.open(DialogDetailsComponent, dialogConfig)
+
+    // dialogRef.afterClosed().subscribe((data) => {
+    //   if (data) {
+    //     data && data.id ? this.updateProduct(data) : this.addProduct(data)
+    //   }
+    // })
   }
 
   public addProduct(product: IProduct): void {

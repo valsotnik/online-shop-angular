@@ -31,4 +31,23 @@ export class ProductsService {
   public deleteProduct(id: number) {
     return this.http.delete(`${environment.urlData}/${id}`)
   }
+
+  public addProductToBasket(product: IProduct) {
+    return this.http.post<IProduct>(environment.urlBasket, product)
+  }
+
+  public getProductsFromBasket() {
+    return this.http.get<IProduct[]>(environment.urlBasket)
+  }
+
+  public updateProductFromBasket(product: IProduct) {
+    return this.http.patch<IProduct>(
+      `${environment.urlBasket}/${product.id}`,
+      product
+    )
+  }
+
+  public deleteProductFromBasket(id: number) {
+    return this.http.delete(`${environment.urlBasket}/${id}`)
+  }
 }

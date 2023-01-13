@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  urlData: 'http://localhost:3000/products'
+  urlData: 'http://localhost:3000/products',
+  urlBasket: 'http://localhost:3000/basket'
 };
 
 /*

@@ -13,6 +13,8 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog'
 export class ProductsComponent implements OnInit, OnDestroy {
   public products: IProduct[]
   public productsSub: Subscription
+  public basketProducts: IProduct[]
+  public basketSub: Subscription
   public editMode: boolean = false
 
   constructor(
@@ -25,6 +27,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.productsSub = this.productService
       .getProducts()
       .subscribe((products: IProduct[]) => (this.products = products))
+
+    this.basketSub = this.productService
+      .getProductsFromBasket()
+      .subscribe((products: IProduct[]) => (this.basketProducts = products))
   }
 
   public openDialog(product?: IProduct): void {
@@ -69,7 +75,29 @@ export class ProductsComponent implements OnInit, OnDestroy {
     )
   }
 
+  public increaseQuantity(product: IProduct) {
+    product.quantity = 1
+    let item
+
+    if (this.basketProducts.length) {
+      item = this.basketProducts.find((item) => item.id === product.id)
+      item ? this.updateInBasket(item) : this.addToBasket(product)
+    } else this.addToBasket(product)
+  }
+
+  public addToBasket(product: IProduct): void {
+    this.productService
+      .addProductToBasket(product)
+      .subscribe((data) => this.basketProducts.push(data))
+  }
+
+  public updateInBasket(product: IProduct): void {
+    product.quantity++
+    this.productService.updateProductFromBasket(product).subscribe((data) => {})
+  }
+
   public ngOnDestroy(): void {
     if (this.productsSub) this.productsSub.unsubscribe()
+    if (this.basketSub) this.basketSub.unsubscribe()
   }
 }

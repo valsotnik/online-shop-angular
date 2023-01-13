@@ -6,6 +6,7 @@ export interface IProduct {
   price: number
   image: string
   configuration: IConfiguration
+  quantity: number
 }
 
 export interface IConfiguration {

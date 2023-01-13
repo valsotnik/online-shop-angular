@@ -1,0 +1,26 @@
+@mixin container {
+  margin: 0 auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0 2rem;
+  gap: 2rem 2rem;
+}
+
+@mixin product-image {
+  max-width: 18.75rem;
+}
+
+@mixin header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

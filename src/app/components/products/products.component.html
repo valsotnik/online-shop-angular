@@ -30,21 +30,23 @@
           <h2>{{ product.price | currency }}</h2>
         </mat-card-content>
       </div>
-      <button mat-button (click)="deleteProduct(product.id)">
-        <span class="material-icons">delete</span>
-      </button>
+      <mat-card-actions>
+        <button mat-button (click)="openDetailsDialog(product)">
+          <span class="material-icons">info</span>
+        </button>
 
-      <button mat-button (click)="openEditDialog(product)">
-        <span class="material-icons">edit</span>
-      </button>
+        <button mat-button (click)="openEditDialog(product)">
+          <span class="material-icons">edit</span>
+        </button>
 
-      <button mat-button (click)="openDetailsDialog(product)">
-        <span class="material-icons">info</span>
-      </button>
+        <button mat-button (click)="increaseQuantity(product)">
+          <span class="material-icons">add_shopping_cart</span>
+        </button>
 
-      <button mat-button (click)="increaseQuantity(product)">
-        <span class="material-icons">add_shopping_cart</span>
-      </button>
+        <button mat-button (click)="deleteProduct(product.id)">
+          <span class="material-icons">delete</span>
+        </button>
+      </mat-card-actions>
     </mat-card>
   </ng-container>
 </div>

@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core'
 import {FormBuilder, FormGroup} from '@angular/forms'
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
+import {ButtonType} from '../../constants'
 
 @Component({
   selector: 'app-dialog-box',
@@ -9,7 +10,7 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
 })
 export class DialogBoxComponent implements OnInit {
   public form: FormGroup
-  public isNewProduct: boolean = true
+  public buttonType = this.data?.id ? ButtonType.Edit : ButtonType.Add
 
   constructor(
     public dialogRef: MatDialogRef<DialogBoxComponent>,
@@ -18,7 +19,6 @@ export class DialogBoxComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    if (this.data) this.isNewProduct = false
     this.form = this.fb.group({
       id: [this.data?.id ?? null],
       artist: [this.data?.artist ?? ''],

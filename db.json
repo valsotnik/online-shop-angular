@@ -159,7 +159,7 @@
       "artist": "Maneskin",
       "album": "Chosen",
       "year": 2022,
-      "price": 35,
+      "price": "30",
       "image": "assets/images/12.jpg",
       "configuration": {
         "genre": "rock",
@@ -301,15 +301,15 @@
       "artist": "Placebo",
       "album": "Never Let Me Go",
       "year": 2022,
-      "price": 40,
+      "price": "40",
       "image": "assets/images/2.jpg",
       "configuration": {
-        "genre": "",
-        "edition": "",
-        "condition": "",
-        "bestseller": ""
+        "genre": "alternative",
+        "edition": "original",
+        "condition": "new",
+        "bestseller": false
       },
-      "quantity": 3
+      "quantity": 14
     }
   ]
 }

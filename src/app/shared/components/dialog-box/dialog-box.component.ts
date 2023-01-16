@@ -1,7 +1,13 @@
 import {Component, Inject, OnInit} from '@angular/core'
-import {FormBuilder, FormGroup} from '@angular/forms'
+import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
-import {ButtonType} from '../../constants'
+import {
+  ButtonType,
+  CONDITION_TYPES,
+  EDITION_TYPES,
+  GENRE_TYPES,
+  ISelectValue,
+} from '../../constants'
 
 @Component({
   selector: 'app-dialog-box',
@@ -11,6 +17,9 @@ import {ButtonType} from '../../constants'
 export class DialogBoxComponent implements OnInit {
   public form: FormGroup
   public buttonType = this.data?.id ? ButtonType.Edit : ButtonType.Add
+  public genreList: ISelectValue[] = GENRE_TYPES
+  public editionList: ISelectValue[] = EDITION_TYPES
+  public conditionList: ISelectValue[] = CONDITION_TYPES
 
   constructor(
     public dialogRef: MatDialogRef<DialogBoxComponent>,
@@ -19,17 +28,29 @@ export class DialogBoxComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
+    console.log(this.genreList)
+
     this.form = this.fb.group({
       id: [this.data?.id ?? null],
-      artist: [this.data?.artist ?? ''],
-      album: [this.data?.album ?? ''],
-      year: [this.data?.year ?? ''],
-      price: [this.data?.price ?? ''],
+      artist: [this.data?.artist ?? '', [Validators.required]],
+      album: [this.data?.album ?? '', [Validators.required]],
+      year: [
+        this.data?.year ?? '',
+        [
+          Validators.required,
+          Validators.min(1930),
+          Validators.max(2023),
+          Validators.pattern(/^\d+$/),
+        ],
+      ],
+      price: [
+        this.data?.price ?? '',
+        [Validators.required, Validators.min(0), Validators.pattern(/^\d+$/)],
+      ],
       image: [this.data?.image ?? ''],
       genre: [this.data?.configuration?.genre ?? ''],
       edition: [this.data?.configuration?.edition ?? ''],
       condition: [this.data?.configuration?.condition ?? ''],
-      bestseller: [this.data?.configuration?.bestseller ?? ''],
     })
   }
 
@@ -38,18 +59,8 @@ export class DialogBoxComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const {
-      id,
-      artist,
-      album,
-      year,
-      price,
-      image,
-      genre,
-      edition,
-      condition,
-      bestseller,
-    } = this.form.value
+    const {id, artist, album, year, price, image, genre, edition, condition} =
+      this.form.value
     this.data = {
       id: id,
       artist: artist,
@@ -58,10 +69,9 @@ export class DialogBoxComponent implements OnInit {
       price: price,
       image: image ? image : 'assets/images/no_cover.jpg',
       configuration: {
-        genre: genre,
-        edition: edition,
-        condition: condition,
-        bestseller: bestseller,
+        genre: genre ? genre : 'Not provided',
+        edition: edition ? edition : 'Not provided',
+        condition: condition ? condition : 'Not provided',
       },
     }
 

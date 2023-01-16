@@ -21,7 +21,6 @@
     <p>Genre: {{ data?.configuration?.genre | titlecase }}</p>
     <p>Edition: {{ data?.configuration?.edition | titlecase }}</p>
     <p>Condition: {{ data?.configuration?.condition | titlecase }}</p>
-    <p>Bestseller: {{ data?.configuration?.bestseller ? 'Yes' : 'No' }}</p>
   </mat-card-content>
   <mat-card-actions class="buttons">
     <button mat-button (click)="onNoClick()">

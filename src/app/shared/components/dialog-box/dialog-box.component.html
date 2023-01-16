@@ -3,49 +3,105 @@
     <mat-label>Artist</mat-label>
     <input matInput formControlName="artist" />
   </mat-form-field>
+  <mat-error
+    *ngIf="
+      form.get('artist').hasError('required') && form.get('artist').touched
+    "
+    >Artist is required</mat-error
+  >
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Album</mat-label>
     <input matInput formControlName="album" />
   </mat-form-field>
+  <mat-error
+    *ngIf="form.get('album').hasError('required') && form.get('album').touched"
+    >Album is required</mat-error
+  >
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Year</mat-label>
     <input matInput formControlName="year" />
   </mat-form-field>
+  <mat-error
+    *ngIf="form.get('year').hasError('required') && form.get('year').touched"
+    >Year is required</mat-error
+  >
+  <mat-error
+    *ngIf="form.get('year').hasError('min') && form.get('year').touched"
+    >Value should be more than 1930</mat-error
+  >
+  <mat-error
+    *ngIf="form.get('year').hasError('max') && form.get('year').touched"
+    >Value should be less than 2023</mat-error
+  >
+  <mat-error
+    *ngIf="form.get('year').hasError('pattern') && form.get('year').touched"
+    >Only numbers</mat-error
+  >
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Price</mat-label>
     <input matInput formControlName="price" />
   </mat-form-field>
+  <mat-error
+    *ngIf="form.get('price').hasError('required') && form.get('price').touched"
+    >Price is required</mat-error
+  >
+  <mat-error
+    *ngIf="form.get('price').hasError('min') && form.get('price').touched"
+    >Value should be more than 0</mat-error
+  >
+  <mat-error
+    *ngIf="form.get('price').hasError('pattern') && form.get('price').touched"
+    >Only numbers</mat-error
+  >
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Image</mat-label>
-    <input matInput formControlName="image" />
+    <input
+      matInput
+      formControlName="image"
+      placeholder="/assets/images/no_cover.jpg"
+    />
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Genre</mat-label>
-    <input matInput formControlName="genre" />
+    <mat-select matInput formControlName="genre">
+      <mat-option *ngFor="let genre of genreList" [value]="genre.value">{{
+        genre.viewValue
+      }}</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Edition</mat-label>
-    <input matInput formControlName="edition" />
+    <mat-select matInput formControlName="edition">
+      <mat-option *ngFor="let edition of editionList" [value]="edition.value">{{
+        edition.viewValue
+      }}</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Condition</mat-label>
-    <input matInput formControlName="condition" />
-  </mat-form-field>
-
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Bestseller</mat-label>
-    <input matInput formControlName="bestseller" />
+    <mat-select matInput formControlName="condition">
+      <mat-option
+        *ngFor="let condition of conditionList"
+        [value]="condition.value"
+        >{{ condition.viewValue }}</mat-option
+      >
+    </mat-select>
   </mat-form-field>
 
   <div class="controls">
-    <button mat-flat-button color="primary" type="submit">
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
       {{ buttonType }}
     </button>
     <button mat-flat-button color="primary" type="button" (click)="onNoClick()"

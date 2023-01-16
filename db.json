@@ -10,8 +10,7 @@
       "configuration": {
         "genre": "r&b",
         "edition": "extended",
-        "condition": "new",
-        "bestseller": true
+        "condition": "new"
       }
     },
     {
@@ -24,8 +23,7 @@
       "configuration": {
         "genre": "alternative",
         "edition": "original",
-        "condition": "new",
-        "bestseller": false
+        "condition": "new"
       }
     },
     {
@@ -38,8 +36,7 @@
       "configuration": {
         "genre": "electro",
         "edition": "deluxe",
-        "condition": "used",
-        "bestseller": false
+        "condition": "used"
       }
     },
     {
@@ -52,8 +49,7 @@
       "configuration": {
         "genre": "pop",
         "edition": "extended",
-        "condition": "used",
-        "bestseller": true
+        "condition": "used"
       }
     },
     {
@@ -66,8 +62,7 @@
       "configuration": {
         "genre": "pop",
         "edition": "original",
-        "condition": "new",
-        "bestseller": true
+        "condition": "new"
       }
     },
     {
@@ -80,8 +75,7 @@
       "configuration": {
         "genre": "rock",
         "edition": "original",
-        "condition": "package",
-        "bestseller": false
+        "condition": "package"
       }
     },
     {
@@ -94,8 +88,7 @@
       "configuration": {
         "genre": "electro",
         "edition": "original",
-        "condition": "new",
-        "bestseller": false
+        "condition": "new"
       }
     },
     {
@@ -108,8 +101,7 @@
       "configuration": {
         "genre": "pop",
         "edition": "extended",
-        "condition": "new",
-        "bestseller": true
+        "condition": "new"
       }
     },
     {
@@ -122,8 +114,7 @@
       "configuration": {
         "genre": "pop",
         "edition": "deluxe",
-        "condition": "used",
-        "bestseller": false
+        "condition": "used"
       }
     },
     {
@@ -136,8 +127,7 @@
       "configuration": {
         "genre": "alternative",
         "edition": "extended",
-        "condition": "used",
-        "bestseller": false
+        "condition": "used"
       }
     },
     {
@@ -150,8 +140,7 @@
       "configuration": {
         "genre": "soundtrack",
         "edition": "deluxe",
-        "condition": "used",
-        "bestseller": false
+        "condition": "used"
       }
     },
     {
@@ -164,8 +153,7 @@
       "configuration": {
         "genre": "rock",
         "edition": "original",
-        "condition": "package",
-        "bestseller": false
+        "condition": "package"
       }
     },
     {
@@ -178,8 +166,7 @@
       "configuration": {
         "genre": "",
         "edition": "",
-        "condition": "",
-        "bestseller": ""
+        "condition": ""
       }
     },
     {
@@ -192,8 +179,7 @@
       "configuration": {
         "genre": "rock",
         "edition": "original",
-        "condition": "package",
-        "bestseller": true
+        "condition": "package"
       }
     },
     {
@@ -206,8 +192,7 @@
       "configuration": {
         "genre": "r&b",
         "edition": "extended",
-        "condition": "new",
-        "bestseller": false
+        "condition": "new"
       }
     },
     {
@@ -220,8 +205,7 @@
       "configuration": {
         "genre": "r&b",
         "edition": "deluxe",
-        "condition": "new",
-        "bestseller": true
+        "condition": "new"
       }
     },
     {
@@ -234,8 +218,7 @@
       "configuration": {
         "genre": "pop",
         "edition": "original",
-        "condition": "new",
-        "bestseller": false
+        "condition": "new"
       }
     },
     {
@@ -248,8 +231,7 @@
       "configuration": {
         "genre": "soundtrack",
         "edition": "extended",
-        "condition": "new",
-        "bestseller": false
+        "condition": "new"
       }
     },
     {
@@ -262,8 +244,7 @@
       "configuration": {
         "genre": "soundtrack",
         "edition": "original",
-        "condition": "package",
-        "bestseller": false
+        "condition": "package"
       }
     },
     {
@@ -276,8 +257,7 @@
       "configuration": {
         "genre": "rock",
         "edition": "deluxe",
-        "condition": "used",
-        "bestseller": false
+        "condition": "used"
       }
     },
     {
@@ -290,26 +270,35 @@
       "configuration": {
         "genre": "",
         "edition": "",
-        "condition": "",
-        "bestseller": ""
+        "condition": ""
+      }
+    },
+    {
+      "id": 23,
+      "artist": "asdc",
+      "album": "xzczx",
+      "year": "2020",
+      "price": "22",
+      "image": "assets/images/no_cover.jpg",
+      "configuration": {
+        "genre": "other",
+        "edition": "Not provided",
+        "condition": "Not provided"
+      }
+    },
+    {
+      "id": 24,
+      "artist": "asxsx",
+      "album": "sadasd",
+      "year": "2000",
+      "price": "33",
+      "image": "assets/images/no_cover.jpg",
+      "configuration": {
+        "genre": "Not provided",
+        "edition": "Not provided",
+        "condition": "Not provided"
       }
     }
   ],
-  "basket": [
-    {
-      "id": 2,
-      "artist": "Placebo",
-      "album": "Never Let Me Go",
-      "year": 2022,
-      "price": "40",
-      "image": "assets/images/2.jpg",
-      "configuration": {
-        "genre": "alternative",
-        "edition": "original",
-        "condition": "new",
-        "bestseller": false
-      },
-      "quantity": 14
-    }
-  ]
+  "basket": []
 }

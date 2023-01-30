@@ -272,32 +272,6 @@
         "edition": "",
         "condition": ""
       }
-    },
-    {
-      "id": 23,
-      "artist": "asdc",
-      "album": "xzczx",
-      "year": "2020",
-      "price": "22",
-      "image": "assets/images/no_cover.jpg",
-      "configuration": {
-        "genre": "other",
-        "edition": "Not provided",
-        "condition": "Not provided"
-      }
-    },
-    {
-      "id": 24,
-      "artist": "asxsx",
-      "album": "sadasd",
-      "year": "2000",
-      "price": "33",
-      "image": "assets/images/no_cover.jpg",
-      "configuration": {
-        "genre": "Not provided",
-        "edition": "Not provided",
-        "condition": "Not provided"
-      }
     }
   ],
   "basket": []

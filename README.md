@@ -1,6 +1,23 @@
-# OnlineShopAngular
+# Online Shop Angular
+<img width="1679" alt="Снимок экрана 2023-01-30 в 09 55 59" src="https://user-images.githubusercontent.com/91071613/215432060-b79493b9-fd0a-46ef-b4a5-84b87960adba.png">
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
+
+ - Goal of the project is to create a list of products using the storage of data with RxJS. 
+ - This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
+ - Before starting of development server on your local machine - Run `npm run json` for a server with database of application
+ 
+## Functionality
+ - List of product's cards which contains info about product (name, price, etc) and panel of buttons
+ - Evere card has buttons:
+   - Information about product;
+   - Edit Product;
+   - Add product to basket;
+   - Delete Product;
+ - Quantity can be changed by clicking on the +/- buttons in Basket component, if it 0 - product removes from basket
+ - Each product can be deleted by clicking on the delete icon button in list page and also in Information page
+ - By click on '+' button in header displays a form that you need to fill with data to create new product
+ - In case all the products are deleted, appears a 'No Products' template
+ - Search and filter functionality not available now, in development  progress
 
 ## Development server
 
